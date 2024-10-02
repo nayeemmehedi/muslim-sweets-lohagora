@@ -109,10 +109,10 @@ const Testimonial = () => {
         </button>
       </div>
       <img
-         className="filter brightness-50 contrast-150" 
-
-       src="https://www.haldirams.com/media/catalog/tmp/category/Sweets.jpg" alt="img" />
-
+        className="filter brightness-50 contrast-150"
+        src="https://www.haldirams.com/media/catalog/tmp/category/Sweets.jpg"
+        alt="img"
+      />
     </div>
   );
 };

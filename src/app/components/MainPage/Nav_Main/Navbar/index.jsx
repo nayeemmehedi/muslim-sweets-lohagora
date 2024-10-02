@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
-import { Dancing_Script } from "next/font/google";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineAlignRight } from "react-icons/ai";
 import { GiWrappedSweet } from "react-icons/gi";
@@ -22,6 +21,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { FcTimeline } from "react-icons/fc";
 
+import { Dancing_Script } from "next/font/google";
 const dancing_Script = Dancing_Script({ subsets: ["latin"], weight: ["700"] });
 
 function Navbar() {

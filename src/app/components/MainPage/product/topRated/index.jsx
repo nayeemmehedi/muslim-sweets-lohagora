@@ -2,16 +2,16 @@ import React from "react";
 import Image from "next/image";
 
 
-async function Toprate({product}:any) {
+async function Toprate({product}) {
   // const product = await productAll();
 
   return (
     <div>
       {product?.data?.value
-        ?.sort((a: any, b: any): any => b.rating - a.rating)
+        ?.sort((a, b)=> b.rating - a.rating)
         .slice(0, 3)
-        .map((p: any,i:any) => (
-          <div key={i} className="cursor-not-allowed rounded-md shadow-md border hover:shadow-xl hover:border-red-950 hover:bg-teal-950 my-4 max-w-40 max-h-40 flex hover:text-stone-100">
+        .map((p,i) => (
+          <div key={i} className=" text-yellow-400 cursor-not-allowed rounded-md shadow-md border hover:shadow-xl hover:border-red-950 hover:bg-teal-950 my-4 flex hover:text-stone-100 p-4">
             <Image
               className="rounded-md"
               src={p.imgUrl}
@@ -20,7 +20,7 @@ async function Toprate({product}:any) {
               alt="Unavailable"
             ></Image>
             <div className="ps-3">
-              <p> {p.banglaName}</p>
+              <p className="font-extralight"> {p.banglaName}</p>
               <p>৳ {p.price}</p>
               <p> rating: {p.rating}</p>
             </div>

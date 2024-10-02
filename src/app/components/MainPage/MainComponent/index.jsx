@@ -6,6 +6,8 @@ const PatisserieProduct = dynamic(() => import('../ServiceDescription/Patisserie
 const Unique = dynamic(() => import('../ServiceDescription/Unique'))
 const OnlineStore = dynamic(() => import('../ServiceDescription/OnlineStore'))
 const Testimonial = dynamic(() => import('../ServiceDescription/Testimonial'))
+const TopRated = dynamic(() => import('../ServiceDescription/TopRated'))
+
 
 function MainComponent() {
   return (
@@ -14,6 +16,7 @@ function MainComponent() {
          <PatisserieProduct></PatisserieProduct>
          <Unique></Unique>
          <OnlineStore></OnlineStore>
+         <TopRated></TopRated>
          <Testimonial></Testimonial>
     </div>
   )
