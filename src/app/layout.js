@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../app/components/MainPage/Nav_Main/Navbar/index.jsx"
 import Footer from "../app/components/MainPage/Nav_Main/Footer"
+import ReduxProvider from "./redux/cardStore/provider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,9 +27,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ReduxProvider>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
+        </ReduxProvider>
       </body>
     </html>
   );

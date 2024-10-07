@@ -14,15 +14,15 @@ async function Toprate({product}) {
           <div key={i} className=" text-yellow-400 cursor-not-allowed rounded-md shadow-md border hover:shadow-xl hover:border-red-950 hover:bg-teal-950 my-4 flex hover:text-stone-100 p-4">
             <Image
               className="rounded-md"
-              src={p.imgUrl}
+              src={p?.imgUrl}
               width={100}
               height={100}
               alt="Unavailable"
             ></Image>
             <div className="ps-3">
-              <p className="font-extralight"> {p.banglaName}</p>
-              <p>৳ {p.price}</p>
-              <p> rating: {p.rating}</p>
+              <p className="font-extralight"> {p?.banglaName}</p>
+              <p>৳ {p?.price}</p>
+              <p> rating: {p?.rating}</p>
             </div>
           </div>
         ))}

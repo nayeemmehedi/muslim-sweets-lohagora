@@ -1,12 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 
 export default function Footer() {
   // const userName = localStorage.getItem("username");
+  const [userName ,setUsername] = useState(null)
+  useEffect(() => {
+    
+    setUsername(Cookies.get("username"))
+  }, [])
+  
 
   return (
     <footer className="backgroundColorMain text-center text-neutral-600 dark:bg-black dark:text-neutral-200 lg:text-left">
@@ -202,12 +208,14 @@ export default function Footer() {
               </svg>
               01916108472
             </p>
-            {/* {userName && (
+            {userName ? (
               <button
                 className="text-yellow-500 border border-yellow-400 px-5 py-1 rounded my-3"
                 onClick={async () => {
                   Cookies.remove("accessToken");
                   Cookies.remove("refreshToken");
+                  Cookies.remove("username");
+
 
                   localStorage.clear();
                   window.location.reload();
@@ -215,7 +223,7 @@ export default function Footer() {
               >
                 Log Out
               </button>
-            )} */}
+            ) : "Login Now"}
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+/**
+ * The `Navbar` function in this JavaScript React code defines a responsive navigation bar component
+ * with links, icons, and user authentication features.
+ */
 "use client";
 
 import clsx from "clsx";
@@ -5,31 +9,33 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineAlignRight } from "react-icons/ai";
 import { GiWrappedSweet } from "react-icons/gi";
-import { IoSearch } from "react-icons/io5";
 import { TbUserSearch } from "react-icons/tb";
-import { TbShoppingCartSearch } from "react-icons/tb";
 import Link from "next/link";
-import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import { BackgroundBeams } from "./NavDesign";
 // import { useSelector } from "react-redux";
 // import { RootState } from "@/app/StateManagement/store";
 import Cookies from "js-cookie";
-import { Button, Dropdown } from "antd";
+import { Badge, Button} from "antd";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import gsap from "gsap";
 import { FcTimeline } from "react-icons/fc";
-
+import { TbShoppingCartSearch } from "react-icons/tb";
 import { Dancing_Script } from "next/font/google";
+
+
 const dancing_Script = Dancing_Script({ subsets: ["latin"], weight: ["700"] });
 
 function Navbar() {
+
+
+
+  const [userName ,setUsername] = useState(null)
   const pathname = usePathname();
+  
   let NavValue = [
     { name: "Home", link: "/" },
     { name: "Products", link: "/product" },
-    { name: "About Us", link: "/aboutUs" },
+    { name: "About Us", link: "/about-us" },
     { name: "Contacts", link: "/contact-us" },
   ];
 
@@ -41,7 +47,11 @@ function Navbar() {
   // const cardValue = useSelector(state => state.counter.value);
   const cardValue = null;
 
-  const userName = Cookies.get("username");
+
+  useEffect(() => {   
+    setUsername(Cookies.get("username"))
+  }, [])
+  
 
   const iconRef = useRef(null);
 
@@ -60,7 +70,7 @@ function Navbar() {
     // bg-[#14100b]
     // bg-neutral-950
     <div>
-      <div className=" backgroundColorMain antialiased">
+      <div className="backgroundColorMain antialiased">
         <div className="">
           <div className=" text-white">
             <div className="flex justify-between items-center w-[92%]  mx-auto">
@@ -103,27 +113,27 @@ function Navbar() {
                   }
                 )}
               >
-                <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                <div className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                   {NavValue?.map((nav, i) => (
-                    <li key={i}>
+                    <div key={i}>
                       {/* <a className="hover:text-gray-500" href="#"> */}
                       <Link
                         className={`${
-                          pathname === nav.link ? "text-gray-400" : ""
+                          pathname === nav?.link ? "text-yellow-500" : ""
                         }`}
-                        href={nav.link}
+                        href={nav?.link}
                       >
                         {" "}
-                        {nav.name}
+                        {nav?.name}
                       </Link>
 
                       <span className="text-xs font-thin text-amber-400 hover:text-red-600">
                         +
                       </span>
                       {/* </a> */}
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
               <div className="flex items-center gap-6 text-amber-300 ">
@@ -136,7 +146,7 @@ function Navbar() {
                 </div>
                 <div>
                   <Badge
-                    badgeContent={userName ? cardValue.length || 0 : null}
+                    // badgeContent={userName ? cardValue?.length || 0 : null}
                     color="error"
                     className="text-amber-300"
                   >
@@ -158,7 +168,7 @@ function Navbar() {
                 </div>
                 <div>
                   {userName && (
-                    <Button className="text-white">{userName}</Button>
+                    <Button className="text-yellow-200 bg-slate-700">{userName}</Button>
                   )}
                 </div>
               </div>
@@ -172,3 +182,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

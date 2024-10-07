@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/components/(card)/AddCard.jsx", "src/app/components/(card)/OderSummery.jsx", "src/app/(authentication)/login/FormLogin.jsx", "src/app/(authentication)/login/page.jsx", "src/DataFatching/product.jsx", "src/app/redux/store.jsx", "src/app/redux/cardStore/counterSlice.jsx", "src/app/redux/cardStore/provider.jsx"  ],
   "exclude": [
     "node_modules"
   ]

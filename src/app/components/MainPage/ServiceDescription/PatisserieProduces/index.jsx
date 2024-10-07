@@ -2,6 +2,8 @@ import React from "react";
 import { Dancing_Script } from "next/font/google";
 import { IoLanguageOutline } from "react-icons/io5";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const dancing_Script = Dancing_Script({ subsets: ["latin"], weight: ["700"] });
 
@@ -22,14 +24,14 @@ function PatisserieProduct() {
       <div className="px-4 py-8 sm:py-12 ">
         <div className=" flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between ">
           {/* Image Section */}
-          <div className="lg:w-[45%] w-full flex justify-center ">
+          <div className="lg:w-[45%] w-full flex justify-center " style={{objectFit:"cover"}}>
             <Image
               className="rounded-lg"
               src="/img/sweets/malai.jpg"
               alt="Blurred Image"
               height={400}
               width={400}
-              objectFit="cover"
+              
             />
           </div>
 
@@ -47,11 +49,18 @@ function PatisserieProduct() {
             </p>
             <p className="text-base sm:text-lg">
               Otherwise, your identity as our patron, would be vague and{" "}
-              <span className="text-amber-400">the brand would become commoditized.</span>
+              <span className="text-amber-400">
+                the brand would become commoditized.
+              </span>
             </p>
             <p className="mt-6 sm:mt-8 text-2xl sm:text-3xl">
-              Learn More <span className="text-red-500">About Us</span>...
+              Learn More <span className="text-red-800 ">About Us</span>...
             </p>
+            <Link href="about-us">
+              <Button className="px-5 my-4" variant="destructive">
+                About Us{" "}
+              </Button>
+            </Link>
           </div>
         </div>
 
